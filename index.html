@@ -41,23 +41,25 @@
         <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
             <span class="text-lg font-bold text-blue-700">SB</span>
             <div class="flex gap-6">
-                <button onclick="showTab('bio')" class="nav-link active px-2 py-1 text-sm uppercase tracking-wider">Bio</button>
-                <button onclick="showTab('experience')" class="nav-link px-2 py-1 text-sm uppercase tracking-wider">Experience</button>
-                <button onclick="showTab('tracker')" class="nav-link px-2 py-1 text-sm uppercase tracking-wider">Tracker</button>
+                <button onclick="showTab('bio', event)" class="nav-link active px-2 py-1 text-sm uppercase tracking-wider transition-all">Bio</button>
+                <button onclick="showTab('experience', event)" class="nav-link px-2 py-1 text-sm uppercase tracking-wider transition-all">Experience</button>
+                <button onclick="showTab('hobbies', event)" class="nav-link px-2 py-1 text-sm uppercase tracking-wider transition-all">Hobbies</button>
             </div>
         </div>
     </nav>
 
     <!-- Header Section -->
     <header class="bg-white pt-12 pb-8 border-b">
-        <div class="max-w-4xl mx-auto px-6">
+        <div class="max-w-4xl mx-auto px-6 text-center md:text-left">
             <h1 class="text-4xl font-extrabold text-slate-900 mb-2">Sara Brumfield</h1>
-            <p class="text-slate-500 flex gap-4 text-sm">
+            <p class="text-slate-500 flex flex-wrap justify-center md:justify-start gap-4 text-sm">
                 <span>Rushville, IN</span>
                 <span>•</span>
-                <a href="mailto:brumfields@xavier.edu" class="hover:text-blue-600 transition-colors">brumfields@xavier.edu</a>
+                <span>765-561-5461</span>
                 <span>•</span>
-                <a href="https://www.linkedin.com/in/sara-brumfield2027" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+                <a href="mailto:brumfields@xavier.edu" class="hover:text-blue-600 transition-colors border-b border-dotted border-slate-300">brumfields@xavier.edu</a>
+                <span>•</span>
+                <a href="https://www.linkedin.com/in/sara-brumfield2027" target="_blank" class="hover:text-blue-600 transition-colors border-b border-dotted border-slate-300">LinkedIn</a>
             </p>
         </div>
     </header>
@@ -71,8 +73,8 @@
                 <div class="bg-white p-6 rounded-xl border shadow-sm">
                     <h3 class="text-xl font-bold text-blue-700">Xavier University</h3>
                     <p class="text-slate-600 font-semibold mb-2">Bachelor of Science in Business Administration | Dec. 2026</p>
-                    <div class="flex flex-wrap gap-2 text-sm">
-                        <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-100">GPA: 3.867</span>
+                    <div class="flex flex-wrap gap-2 text-sm mt-4">
+                        <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-100 font-medium">GPA: 3.867</span>
                         <span class="bg-slate-50 text-slate-700 px-3 py-1 rounded-full border border-slate-200">Major: Business Management</span>
                         <span class="bg-slate-50 text-slate-700 px-3 py-1 rounded-full border border-slate-200">Minor: Operations & Supply Chain</span>
                         <span class="bg-slate-50 text-slate-700 px-3 py-1 rounded-full border border-slate-200">Minor: Economics</span>
@@ -81,65 +83,101 @@
             </section>
 
             <section>
-                <h2 class="text-2xl font-bold text-slate-900 mb-6">Campus Involvement</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 font-semibold">Campus Involvement</h2>
                 <div class="grid md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-white rounded-lg border">
-                        <h4 class="font-bold text-slate-800">Mortar Board</h4>
-                        <p class="text-sm text-slate-500">Scholarship, Leadership, and Service Member</p>
+                    <div class="p-5 bg-white rounded-xl border hover:border-blue-200 hover:shadow-md transition-all">
+                        <h4 class="font-bold text-slate-800 text-lg">Mortar Board</h4>
+                        <p class="text-sm text-slate-500 mt-2">Recognized for outstanding scholarship, leadership, and distinguished service (2024 - Present).</p>
                     </div>
-                    <div class="p-4 bg-white rounded-lg border">
-                        <h4 class="font-bold text-slate-800">Women in Business</h4>
-                        <p class="text-sm text-slate-500">Community Empowerment Member</p>
+                    <div class="p-5 bg-white rounded-xl border hover:border-blue-200 hover:shadow-md transition-all">
+                        <h4 class="font-bold text-slate-800 text-lg">Women in Business</h4>
+                        <p class="text-sm text-slate-500 mt-2">Member empowering women in the business community (2024).</p>
                     </div>
-                    <div class="p-4 bg-white rounded-lg border">
-                        <h4 class="font-bold text-slate-800">Chi Omega</h4>
-                        <p class="text-sm text-slate-500">Assistant Recruitment Chair</p>
+                    <div class="p-5 bg-white rounded-xl border hover:border-blue-200 hover:shadow-md transition-all md:col-span-2">
+                        <h4 class="font-bold text-slate-800 text-lg">Chi Omega</h4>
+                        <p class="text-sm text-slate-500 mt-2">Assistant Recruitment Chair; Created merchandise and designed recruitment events (2022).</p>
                     </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 font-semibold">Skills & Certificates</h2>
+                <div class="bg-white p-6 rounded-xl border border-dashed border-slate-300 grid md:grid-cols-2 gap-6">
+                    <ul class="text-slate-600 text-sm space-y-3">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Microsoft 365 Office Proficiency</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Google Applications Proficiency</li>
+                    </ul>
+                    <ul class="text-slate-600 text-sm space-y-3">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Project Management Skills for Leaders</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Word for Mac Essential Training</li>
+                    </ul>
                 </div>
             </section>
         </div>
 
         <!-- Tab: Experience -->
         <div id="experience" class="tab-content space-y-8">
-            <h2 class="text-2xl font-bold text-slate-900">Professional History</h2>
+            <h2 class="text-2xl font-bold text-slate-900 font-semibold">Professional History</h2>
             
             <div class="relative pl-8 border-l-2 border-slate-200 space-y-12">
                 <!-- RAS Supply -->
                 <div class="relative">
                     <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                    <h3 class="text-lg font-bold">Department Head | RAS Supply</h3>
-                    <p class="text-sm text-blue-600 font-medium mb-3">January 2024 - Present</p>
-                    <ul class="text-slate-600 space-y-2 list-disc pl-5">
+                    <h3 class="text-xl font-bold">Department Head | RAS Supply</h3>
+                    <p class="text-sm text-blue-600 font-semibold mb-4">Rushville, IN | January 2024 - Present</p>
+                    <ul class="text-slate-600 space-y-3 list-disc pl-5">
                         <li>Spearheaded company start-up efforts with organization, task prioritization, and risk management.</li>
                         <li>Organized systems of award management in accordance with the government.</li>
-                        <li>Managed relationships with 20 potential vendors for supply contracts.</li>
+                        <li>Managed vendor relationships and contracts for 20 potential vendors.</li>
+                        <li>Helped create a website to market the company and sell merchandise.</li>
                     </ul>
                 </div>
 
                 <!-- Tech Entr -->
                 <div class="relative">
                     <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow-sm"></div>
-                    <h3 class="text-lg font-bold">Product Design | Technical Entrepreneurship</h3>
-                    <p class="text-sm text-slate-500 font-medium mb-3">May 2021</p>
-                    <ul class="text-slate-600 space-y-2 list-disc pl-5 text-sm">
-                        <li>Developed 3 business plans using interviews and feedback loops.</li>
-                        <li>Presented concepts via Panopto to peers and faculty.</li>
-                        <li>Built product architecture using lean setup and revenue models.</li>
+                    <h3 class="text-xl font-bold">New Product Design | Technical Entrepreneurship</h3>
+                    <p class="text-sm text-slate-500 font-semibold mb-4">Terre Haute, IN | May 2021</p>
+                    <ul class="text-slate-600 space-y-3 list-disc pl-5 text-sm">
+                        <li>Developed 3 business plans and redefined ideas using business models and interviewing processes.</li>
+                        <li>Presented final plans using PowerPoint and Panopto, integrating feedback for project success.</li>
+                        <li>Utilized lean setup, revenue models, and customer demographics for product development.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Tab: Tracker -->
-        <div id="tracker" class="tab-content">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">Interactive Reading List</h2>
-            <div class="bg-white p-8 rounded-2xl border shadow-sm space-y-6">
-                <p class="text-slate-500 text-sm">This section demonstrates dynamic DOM manipulation using JavaScript.</p>
-                <div class="flex gap-2">
-                    <input type="text" id="bookInput" placeholder="Book title..." class="flex-1 px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none transition-all">
-                    <button onclick="addBook()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 active:scale-95 transition-all">Add</button>
-                </div>
-                <ul id="bookList" class="space-y-2"></ul>
+        <!-- Tab: Hobbies -->
+        <div id="hobbies" class="tab-content space-y-12">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 mb-3 font-semibold">Hobbies & Interests</h2>
+                <p class="text-slate-500 text-base">A quick look at my current reading list and favorite films.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Book Tracker -->
+                <section class="bg-white p-6 rounded-2xl border shadow-sm space-y-6 flex flex-col">
+                    <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                        <span>📚 Book Tracker</span>
+                    </h3>
+                    <div class="flex gap-2">
+                        <input type="text" id="bookInput" placeholder="Add a book title..." class="flex-1 px-4 py-2 text-sm rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                        <button onclick="addItem('book')" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 active:scale-95 transition-all shadow-sm">Add</button>
+                    </div>
+                    <ul id="bookList" class="space-y-2 flex-1"></ul>
+                </section>
+
+                <!-- Movie Catalog -->
+                <section class="bg-white p-6 rounded-2xl border shadow-sm space-y-6 border-t-4 border-t-blue-500 flex flex-col">
+                    <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                        <span>🎬 Favorite Movie Catalog</span>
+                    </h3>
+                    <div class="flex gap-2">
+                        <input type="text" id="movieInput" placeholder="Add a movie title..." class="flex-1 px-4 py-2 text-sm rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                        <button onclick="addItem('movie')" class="bg-slate-800 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-slate-900 active:scale-95 transition-all shadow-sm">Add</button>
+                    </div>
+                    <ul id="movieList" class="space-y-2 flex-1"></ul>
+                </section>
             </div>
         </div>
 
@@ -147,48 +185,48 @@
 
     <footer class="py-12 border-t mt-12 bg-white">
         <div class="max-w-4xl mx-auto px-6 text-center text-slate-400 text-sm">
-            &copy; 2026 Sara Brumfield | Professional Portfolio built with AI
+            &copy; 2026 Sara Brumfield | Professional Portfolio | Developed with AI
         </div>
     </footer>
 
     <script>
-        // Tab Management Logic
-        function showTab(tabId) {
-            // Hide all tabs
+        // Tab Navigation Logic
+        function showTab(tabId, event) {
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            // Deactivate all links
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
-            // Show target tab
             document.getElementById(tabId).classList.add('active');
-            // Activate target link
             event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Reading List Logic
-        function addBook() {
-            const input = document.getElementById('bookInput');
-            const list = document.getElementById('bookList');
+        // Logic for adding Books or Movies
+        function addItem(type) {
+            const input = document.getElementById(type + 'Input');
+            const list = document.getElementById(type + 'List');
             
-            if (input.value.trim() === '') return;
+            if (!input || !list || input.value.trim() === '') return;
 
             const li = document.createElement('li');
-            li.className = "flex justify-between items-center bg-slate-50 p-4 rounded-lg border group animate-fadeIn";
+            li.className = "flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100 group animate-fadeIn hover:bg-white transition-colors";
             li.innerHTML = `
-                <span class="font-medium text-slate-700">${input.value}</span>
-                <button onclick="this.parentElement.remove()" class="text-red-400 hover:text-red-600 text-sm opacity-0 group-hover:opacity-100 transition-opacity">Remove</button>
+                <span class="text-sm font-medium text-slate-700">${input.value}</span>
+                <button onclick="this.parentElement.remove()" class="text-red-400 hover:text-red-600 text-xs opacity-0 group-hover:opacity-100 transition-opacity font-semibold">Remove</button>
             `;
             
             list.appendChild(li);
             input.value = '';
         }
 
-        // Allow 'Enter' key to add books
-        document.getElementById('bookInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') addBook();
+        // Support for the Enter key
+        document.getElementById('bookInput').addEventListener('keypress', (e) => { 
+            if (e.key === 'Enter') addItem('book'); 
+        });
+        document.getElementById('movieInput').addEventListener('keypress', (e) => { 
+            if (e.key === 'Enter') addItem('movie'); 
         });
     </script>
 </body>
