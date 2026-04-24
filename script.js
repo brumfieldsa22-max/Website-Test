@@ -11,7 +11,7 @@ if (addBtn) {
                 <button onclick="this.parentElement.remove()" style="background:red; color:white; border:none; padding:5px; border-radius:3px;">Delete</button>
             `;
             bookList.appendChild(li);
-            bookInput.value = "";
+            bookInput.value = ";
         }
     };
 }const addBtn = document.getElementById('addBtn');
