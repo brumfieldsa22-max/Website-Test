@@ -185,12 +185,12 @@
                     <p class="text-slate-500 text-sm">Everyone's additions are saved to the cloud!</p>
                 </div>
                 <div class="bg-white px-4 py-3 rounded-xl border shadow-sm flex items-center gap-4">
-                    <div class="flex flex-col">
-                        <span class="text-[10px] uppercase font-bold text-slate-400">Your Guest Name</span>
-                        <span id="currentNameDisplay" class="font-bold text-blue-700">Anonymous</span>
-                    </div>
-                    <button id="setNameBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-blue-700 transition-all shadow-sm">Set Name</button>
-                </div>
+    <div class="flex flex-col">
+        <span class="text-[10px] uppercase font-bold text-slate-400">Your Guest Name</span>
+        <input type="text" id="nameInput" placeholder="Enter name..." class="font-bold text-blue-700 outline-none border-b border-transparent focus:border-blue-300 w-32">
+    </div>
+    <button id="setNameBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-blue-700 transition-all shadow-sm">Save</button>
+</div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
@@ -236,14 +236,23 @@
         document.getElementById('currentNameDisplay').innerText = myName;
 
         // Connect the "Set Name" button
-        document.getElementById('setNameBtn').onclick = () => {
-            const n = prompt("What's your name?", myName);
-            if (n && n.trim()) {
-                myName = n.trim();
-                localStorage.setItem('saraContributorName', myName);
-                document.getElementById('currentNameDisplay').innerText = myName;
-            }
-        };
+       // This function grabs the value from the new input box you just added
+const updateNameValue = () => {
+    const nameInputField = document.getElementById('nameInput');
+    const n = nameInputField.value;
+    if (n && n.trim()) {
+        myName = n.trim();
+        localStorage.setItem('saraContributorName', myName);
+        // This gives you a little blue flash so you know it saved!
+        nameInputField.classList.add('text-blue-400');
+        setTimeout(() => nameInputField.classList.remove('text-blue-400'), 500);
+    }
+};
+
+document.getElementById('setNameBtn').onclick = updateNameValue;
+
+// This ensures that when the page loads, your saved name appears in the box
+document.getElementById('nameInput').value = myName;
 
         // Firebase Auth
         onAuthStateChanged(auth, u => {
